@@ -9,11 +9,14 @@ const SearchBar = ({ searchLogs }) => {
   // const onChange = e => {
   //   searchLogs(text.current.value);
   // };
-
+  let timeout;
   const search = e => {
-    setTimeout(() => {
-      searchLogs(e.target.value);
-    }, 2000);
+    clearTimeout(timeout);
+    const textValue = e.target.value;
+    // Make a new timeout set to go off in 500ms
+    timeout = setTimeout(function() {
+      searchLogs(textValue);
+    }, 500);
   };
   return (
     <nav style={{ marginBottom: '30px' }} className='blue'>
