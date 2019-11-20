@@ -8,7 +8,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   SEARCH_LOGS
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   logs: null,

@@ -8,7 +8,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   SEARCH_LOGS
-} from './types';
+} from "./types";
 
 // export const getLogs = () => {
 //   return async dispatch => {
@@ -29,7 +29,7 @@ export const getLogs = () => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('/logs');
+    const res = await fetch("/logs");
     const data = await res.json();
 
     dispatch({
@@ -49,11 +49,11 @@ export const addLog = log => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('/logs', {
-      method: 'POST',
+    const res = await fetch("/logs", {
+      method: "POST",
       body: JSON.stringify(log),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     });
     const data = await res.json();
@@ -76,7 +76,7 @@ export const deleteLog = logId => async dispatch => {
     setLoading();
 
     await fetch(`/logs/${logId}`, {
-      method: 'DELETE'
+      method: "DELETE"
     });
 
     dispatch({
@@ -97,10 +97,10 @@ export const updateLog = log => async dispatch => {
     setLoading();
 
     const res = await fetch(`/logs/${log.id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(log),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     });
 
