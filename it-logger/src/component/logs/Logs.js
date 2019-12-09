@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import Logitem from "./LogItem";
 import Preloader from "../layout/Preloder";
@@ -9,7 +9,7 @@ const Logs = props => {
   // const [logs, setLogs] = useState([]);
   // const [loading, setLoading] = useState(false);
   // console.log('props.log', props.log);
-  const [limit, setLimit] = useState(1);
+  // const [limit, setLimit] = useState(1);
   const { getLogs } = props;
   const { logs, loading } = props.log;
 
@@ -31,9 +31,9 @@ const Logs = props => {
     return <Preloader />;
   }
 
-  const onLoadMore = () => {
-    setLimit(limit + 1);
-  };
+  // const onLoadMore = () => {
+  //   setLimit(limit + 1);
+  // };
 
   return (
     <Fragment>
@@ -44,16 +44,19 @@ const Logs = props => {
         {!loading && logs.length === 0 ? (
           <p>No logs to show..</p>
         ) : (
-          logs.slice(0, limit).map(log => {
+          // logs.slice(0, limit).map(log => {
+          //   return <Logitem log={log} key={log.id} />;
+          // })
+          logs.map(log => {
             return <Logitem log={log} key={log.id} />;
           })
         )}
       </ul>
-      <div>
+      {/* <div>
         <button className="btn blue" onClick={onLoadMore}>
           Load More...
         </button>
-      </div>
+      </div> */}
     </Fragment>
   );
 };
